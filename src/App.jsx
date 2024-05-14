@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import './App.css'
-import TemplateHome from './modules/home/template/TemplateHome';
+import Home from './pages/Home';
 
 function App() {
 
@@ -9,7 +9,7 @@ function App() {
     <BrowserRouter>
         <Routes>
         
-        <Route path="/" element={<TemplateHome/>} />
+        <Route path="/" element={<Home/>} />
 
 
 
