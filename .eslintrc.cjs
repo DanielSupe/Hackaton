@@ -17,6 +17,10 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-    'no-unused-vars': ['warn', { vars: 'all', args: 'none', ignoreRestSiblings: true }],
+    'no-unused-vars': [
+      'warn',
+      { vars: 'all', args: 'none', ignoreRestSiblings: true, varsIgnorePattern: '^React$' },
+    ],
+    'react/react-in-jsx-scope': 'off', // Esta regla evita la advertencia cuando React no se usa directamente
   },
 }
