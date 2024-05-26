@@ -32,12 +32,12 @@ export function TemplateHome() {
   },
   {
     name: "Sign In",
-    path: "/sign-in",
+    path: "/iniciarSesion",
     element: <TemplateHome />,
   },
   {
     name: "Sign Up",
-    path: "/sign-up",
+    path: "/registrarse",
     element: <TemplateHome />,
   },
 ];

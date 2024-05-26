@@ -16,7 +16,7 @@ const Register = () => {
     <div className="flex text-start items-center justify-center flex-col min-h-full m-[10%]">
       <div
         id="main"
-        className={`container shadow-[0_14px_28px_rgba(0,0,0,0.25)] ${
+        className={`contain shadow-[0_14px_28px_rgba(0,0,0,0.25)] ${
           isRightPanelActive ? "right-panel-active" : ""
         }`}
       >
