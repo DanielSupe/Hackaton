@@ -31,7 +31,6 @@
 
 .buttonRegistration {
   transition: transform 80ms ease-in;
-  cursor: pointer;
 }
 
 .buttonRegistration:active {

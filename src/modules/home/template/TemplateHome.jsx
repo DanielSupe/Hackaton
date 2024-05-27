@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Card,
   CardBody,
@@ -15,8 +15,12 @@ import { PageTitle, Footer } from "@/widgets/layout";
 import { FeatureCard, TeamCard } from "@/widgets/cards";
 import { featuresData, teamData, contactData } from "@/data";
 import { Navbar } from "@/widgets/layout";
+import { useDispatch } from "react-redux";
 
 export function TemplateHome() {
+
+  const dispatch = useDispatch();
+
 
 
    const routes = [
