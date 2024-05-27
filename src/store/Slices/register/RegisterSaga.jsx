@@ -24,7 +24,8 @@ function* RegisterUserMentorProfile(action) {
          yield put(RegisterUserMentorSuccess(resp))
          SwalAlert("Success","Created Mentor","success")
     } catch (error) {
-        SwalAlert("Error","Mentor was not created","error")
+        console.log(error,"error")
+        SwalAlert("Error",`${error.response.data.message[0]}`,"error")
     }
     
 }
@@ -52,7 +53,8 @@ function* RegisterUserHeroeProfile(action) {
          yield put(RegisterUserHeroeSuccess(resp))
          SwalAlert("Success","Created Heroe","success")
     } catch (error) {
-        SwalAlert("Error","Heroe was not created","error")
+        console.log(error,"error")
+        SwalAlert("Error",`${error.response.data.message[0]}`,"error")
     }
     
 }
