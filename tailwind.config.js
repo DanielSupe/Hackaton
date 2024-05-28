@@ -23,7 +23,12 @@ export default {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        body: ["Open Sans", "sans-serif"],
+        title:["Timmana", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 }

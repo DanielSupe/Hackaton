@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Card,
   CardBody,
@@ -15,30 +15,36 @@ import { PageTitle, Footer } from "@/widgets/layout";
 import { FeatureCard, TeamCard } from "@/widgets/cards";
 import { featuresData, teamData, contactData } from "@/data";
 import { Navbar } from "@/widgets/layout";
+import { useDispatch } from "react-redux";
 
 export function TemplateHome() {
-  const routes = [
-    {
-      name: "home",
-      path: "/home",
-      element: <TemplateHome />,
-    },
-    {
-      name: "profile",
-      path: "/profile",
-      element: <TemplateHome />,
-    },
-    {
-      name: "Sign In",
-      path: "/iniciarSesion",
-      element: <TemplateHome />,
-    },
-    {
-      name: "Sign Up",
-      path: "/registrarse",
-      element: <TemplateHome />,
-    },
-  ];
+
+  const dispatch = useDispatch();
+
+
+
+   const routes = [
+  {
+    name: "home",
+    path: "/home",
+    element: <TemplateHome />,
+  },
+  {
+    name: "profile",
+    path: "/profile",
+    element: <TemplateHome />,
+  },
+  {
+    name: "Sign In",
+    path: "/iniciarSesion",
+    element: <TemplateHome />,
+  },
+  {
+    name: "Sign Up",
+    path: "/registrarse",
+    element: <TemplateHome />,
+  },
+];
 
   return (
     <>
