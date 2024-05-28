@@ -17,40 +17,37 @@ import { featuresData, teamData, contactData } from "@/data";
 import { Navbar } from "@/widgets/layout";
 
 export function TemplateHome() {
-
-
-   const routes = [
-  {
-    name: "home",
-    path: "/home",
-    element: <TemplateHome />,
-  },
-  {
-    name: "profile",
-    path: "/profile",
-    element: <TemplateHome />,
-  },
-  {
-    name: "Sign In",
-    path: "/iniciarSesion",
-    element: <TemplateHome />,
-  },
-  {
-    name: "Sign Up",
-    path: "/registrarse",
-    element: <TemplateHome />,
-  },
-];
+  const routes = [
+    {
+      name: "home",
+      path: "/home",
+      element: <TemplateHome />,
+    },
+    {
+      name: "profile",
+      path: "/profile",
+      element: <TemplateHome />,
+    },
+    {
+      name: "Sign In",
+      path: "/iniciarSesion",
+      element: <TemplateHome />,
+    },
+    {
+      name: "Sign Up",
+      path: "/registrarse",
+      element: <TemplateHome />,
+    },
+  ];
 
   return (
     <>
       <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32">
-      <div className="container absolute top-0 z-10  p-4">
+        <div className="container absolute top-0 z-10  p-4">
           <Navbar routes={routes} />
         </div>
         <div className="absolute top-0 h-full w-full bg-[url('/Images/Home/image_1.jpg')] bg-cover bg-center" />
         <div className="absolute top-0 h-full w-full bg-black/60 bg-cover bg-center" />
-
 
         <div className="max-w-8xl container relative mx-auto">
           <div className="flex flex-wrap items-center">
@@ -58,22 +55,25 @@ export function TemplateHome() {
               <Typography
                 variant="h1"
                 color="white"
-                className="mb-6 font-black"
+                className="mb-6 font-black text-[30px] pt-[40px]"
               >
-                Your story starts with us.
+                ¡Querido héroe inicia tu historia con nosotros!
               </Typography>
-              <Typography variant="lead" color="white" className="opacity-80">
-                This is a simple example of a Landing Page you can build using
-                Material Tailwind. It features multiple components based on the
-                Tailwind CSS and Material Design by Google.
+              <Typography variant="lead" color="white" className="opacity-80 pt-[40px]">
+                Es un honor tenerte aquí en el comienzo de tu gran aventura. En
+                este lugar, te preparamos para enfrentar desafíos, superar
+                obstáculos y alcanzar logros asombrosos. Cada paso que tomes te
+                acercará más a convertirte en el héroe que estás destinado a
+                ser. Tu mentor estará a tu lado, guiándote y apoyándote en cada
+                etapa de tu viaje. Juntos, aprenderán nuevas habilidades,
+                descubrirán secretos y enfrentarán adversidades con valentía y
+                determinación.
               </Typography>
             </div>
           </div>
         </div>
-
-
       </div>
-      <section className="-mt-32 bg-white px-4 pb-20 pt-4">
+      <section className="-mt-32 bg-white px-4 pb-20 pt-20">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 ">
             {featuresData.map(({ color, title, icon, description }) => (
@@ -107,10 +107,15 @@ export function TemplateHome() {
                 <br />
                 <br />
                 The kit comes with three pre-built pages to help you get started
-                faster. You can change the text and images and youre good to
-                go. Just make sure you enable them first via JavaScript.
+                faster. You can change the text and images and youre good to go.
+                Just make sure you enable them first via JavaScript.
               </Typography>
-              <Button className=" bg-black text-white px-4 py-2" variant="filled">read more</Button>
+              <Button
+                className=" bg-black text-white px-4 py-2"
+                variant="filled"
+              >
+                read more
+              </Button>
             </div>
 
             <div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
@@ -123,7 +128,13 @@ export function TemplateHome() {
                   />
                 </CardHeader>
                 <CardBody>
-                  <Typography variant="small" color="blue-gray" className="font-normal">Enterprise</Typography>
+                  <Typography
+                    variant="small"
+                    color="blue-gray"
+                    className="font-normal"
+                  >
+                    Enterprise
+                  </Typography>
                   <Typography
                     variant="h5"
                     color="blue-gray"
@@ -138,8 +149,6 @@ export function TemplateHome() {
                   </Typography>
                 </CardBody>
               </Card>
-
-
             </div>
           </div>
         </div>
@@ -201,7 +210,6 @@ export function TemplateHome() {
               </Card>
             ))}
           </div>
-          
         </div>
       </section>
     </>
