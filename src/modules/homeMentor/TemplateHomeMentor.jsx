@@ -9,7 +9,7 @@ export function TemplateHomeMentor() {
   };
   return (
     <div className="min-h-screen flex bg-no-repeat bg-cover"
-    style={{ backgroundImage:"url('public/images/Home/image_1.jpg')" }}
+    style={{ backgroundImage:"url('/Images/Home/image_1.jpg')" }}
     >
       <SideMenu onToggle={handleToggleMenu} />
       <div
@@ -25,7 +25,7 @@ export function TemplateHomeMentor() {
             </h1>
             <img
               className="mx-auto mb-5 h-[400px] rounded-xl"
-              src="./public/Images/HomeMentor/wizardHomeMentor.jpeg"
+              src="/Images/HomeMentor/wizardHomeMentor.jpeg"
               alt="wizard"
             />
             <p className="text-[28px] font-bold text-black mb-5 animate-slideIn">

@@ -34,7 +34,7 @@ const Login = () => {
 
   useEffect(()=>{
     if(exito){
-      history('/')
+      history('/Inicio')
       dispatch(ReinicioExitoUser())
     }
   },[exito])

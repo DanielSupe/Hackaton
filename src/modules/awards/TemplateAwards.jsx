@@ -27,7 +27,7 @@ export function TemplateAwards() {
 
   return (
     <div className="min-h-screen bg-no-repeat bg-cover"
-    style={{ backgroundImage:"url('public/images/Home/image_1.jpg')" }}
+    style={{ backgroundImage:"url('/Images/Home/image_1.jpg')" }}
     >
       <SideMenu onToggle={handleToggleMenu}
       />

@@ -7,6 +7,9 @@ import Register from './pages/Register';
 import HomeMentor from './pages/HomeMentor';
 import Dashboard from './pages/Dashboard';
 import Awards from './pages/Awards';
+import Layaut from './common/components/LayautMentor';
+import Inicio from './pages/Inicio';
+import Logout from './common/components/Logout';
 
 
 function App() {
@@ -19,14 +22,15 @@ function App() {
         <Route path="/iniciarSesion" element={<Login/>} />
         <Route path="/registrarse" element={<Register/>} />
         <Route path="/inicioMentor" element={<HomeMentor/>} />
-        <Route path="/dashboard" element={<Dashboard/>} />
-        <Route path="/premios" element={<Awards/>} />
+        <Route path="/Inicio" element={<Inicio />} /> 
+        <Route path="/Logout" element={<Logout />} /> 
 
-        {/* <Route path="/Inicio" element={<SideBar/>}>
-          <Route index element={} />  componente a renderizar en /Inicio/ 
-          <Route path="/Inicio/ejemplo" element={<ejemploComponent />} />  ejemplo de nueva ruta
-          Otras rutas hijas aquí
-        </Route> */}
+
+        <Route path="/Inicio/Mentor" element={<Layaut/>}>
+          <Route index element={<HomeMentor/>} />  
+          <Route path="/Inicio/Mentor/dashboard" element={<Dashboard />} />  
+          <Route path="/Inicio/Mentor/premios" element={<Awards/>} />
+        </Route>
 
 
         {/* para poner un layaut */}

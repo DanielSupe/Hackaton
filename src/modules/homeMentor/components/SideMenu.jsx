@@ -6,6 +6,7 @@ import QueryStatsIcon from '@mui/icons-material/QueryStats';
 import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const SideMenu = ({ onToggle }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,21 +44,27 @@ const SideMenu = ({ onToggle }) => {
         <nav className="mt-10">
           <ul>
             <li className="mb-4 pt-[30px]">
-              <Link to="/inicioMentor" className="block py-2 px-4 rounded hover:bg-gray-700 flex items-center">
+              <Link to="/Inicio/Mentor" className="block py-2 px-4 rounded hover:bg-gray-700 flex items-center">
                 <CastleIcon className='mr-3'/>
                 Inicio
               </Link>
             </li>
             <li className="mb-4">
-              <Link to="/dashboard" className="block py-2 px-4 rounded hover:bg-gray-700 flex items-center">
+              <Link to="/Inicio/Mentor/dashboard" className="block py-2 px-4 rounded hover:bg-gray-700 flex items-center">
                 <QueryStatsIcon className='mr-3'/>
                 Estadísticas
               </Link>
             </li>
             <li>
-              <Link to="/premios" className="block py-2 px-4 rounded hover:bg-gray-700 flex items-center">
+              <Link to="/Inicio/Mentor/premios" className="block py-2 px-4 rounded hover:bg-gray-700 flex items-center">
                 <MilitaryTechIcon className='mr-3'/>
                 Premios
+              </Link>
+            </li>
+            <li>
+              <Link to="/Logout" className="block py-2 px-4 rounded hover:bg-gray-700 flex items-center">
+                <LogoutIcon className='mr-3'/>
+                Salir
               </Link>
             </li>
           </ul>
