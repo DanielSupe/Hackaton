@@ -7,3 +7,6 @@
   padding: 0;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
+html {
+  scroll-behavior: smooth; /* Esta línea habilita el scroll suave */
+}

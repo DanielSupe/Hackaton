@@ -16,7 +16,10 @@ import { FeatureCard, TeamCard } from "@/widgets/cards";
 import { featuresData, teamData, contactData } from "@/data";
 import { Navbar } from "@/widgets/layout";
 import { useDispatch } from "react-redux";
-
+import HomeIcon from '@mui/icons-material/Home';
+import AccessibilityIcon from '@mui/icons-material/Accessibility';
+import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
+import InfoIcon from '@mui/icons-material/Info';
 export function TemplateHome() {
 
   const dispatch = useDispatch();
@@ -27,23 +30,28 @@ export function TemplateHome() {
   {
     name: "home",
     path: "/home",
+    icon: <HomeIcon/>,
     element: <TemplateHome />,
   },
   {
-    name: "profile",
-    path: "/profile",
+    name: "Roles",
+    href: "#RolesHome",
+    icon: <AccessibilityIcon/>,
     element: <TemplateHome />,
   },
   {
-    name: "Sign In",
+    name: "Informacion",
+    href: "#RolesHome",
+    icon: <InfoIcon/>,
+    element: <TemplateHome />,
+  },
+  {
+    name: "Entrar",
+    icon: <MeetingRoomIcon/>,
     path: "/iniciarSesion",
     element: <TemplateHome />,
   },
-  {
-    name: "Sign Up",
-    path: "/registrarse",
-    element: <TemplateHome />,
-  },
+  
 ];
 
   return (
@@ -159,29 +167,17 @@ export function TemplateHome() {
           </div>
         </div>
       </section>
-      <section className="px-4 pt-20 pb-48">
+      <section id="RolesHome" className="px-4 pt-20 pb-48 bg-[url('/Images/Home/FondoRoles.png')] bg-cover bg-center">
         <div className="container mx-auto">
-          <PageTitle section="Our Team" heading="Here are our heroes">
-            According to the National Oceanic and Atmospheric Administration,
-            Ted, Scambos, NSIDClead scentist, puts the potentially record
-            maximum.
+          <PageTitle section="Roles" heading="Escoge tu rol favorito!">
+           Tú eres el héroe. Como guerrero, lucharás con un hacha poderosa. Si eres caballero, usarás espada y escudo. Como mago, lanzarás hechizos mágicos. Y como arquero, dispararás flechas certeras. ¡Elige tu destino y salva el reino! ¿Qué héroe serás?
           </PageTitle>
           <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
-            {teamData.map(({ img, name, position, socials }) => (
+            {teamData.map(({ img, name }) => (
               <TeamCard
                 key={name}
                 img={img}
                 name={name}
-                position={position}
-                socials={
-                  <div className="flex items-center gap-2">
-                    {socials.map(({ color, name }) => (
-                      <IconButton key={name} color={color} variant="text">
-                        <i className={`fa-brands text-xl fa-${name}`} />
-                      </IconButton>
-                    ))}
-                  </div>
-                }
               />
             ))}
           </div>

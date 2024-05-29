@@ -9,7 +9,7 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-
+import CastleIcon from '@mui/icons-material/Castle';
 
 export function Navbar({ brandName, routes, action }) {
   const [openNav, setOpenNav] = React.useState(false);
@@ -35,24 +35,22 @@ export function Navbar({ brandName, routes, action }) {
             <a
               href={href}
               target={target}
-              className="flex items-center gap-1 p-1 font-bold"
+              className="flex items-center gap-1 p-1 font-bold hover:underline transition-all"
             >
-              {icon &&
-                React.createElement(icon, {
-                  className: "w-[18px] h-[18px] opacity-75 mr-1",
-                })}
+              {icon ? icon:null}
               {name}
             </a>
           ) : (
             <Link
               to={path}
               target={target}
-              className="flex items-center gap-1 p-1 font-bold"
+              className="flex items-center gap-1 p-1 font-bold hover:underline transition-all"
             >
-              {icon &&
+              {/* {icon &&
                 React.createElement(icon, {
                   className: "w-[18px] h-[18px] opacity-75 mr-1",
-                })}
+                })} */}
+                {icon ? icon:null}
               {name}
             </Link>
           )}
@@ -71,13 +69,15 @@ export function Navbar({ brandName, routes, action }) {
         </Link>
         <div className="hidden lg:block">{navList}</div>
         <div className="hidden gap-2 lg:flex">
-          {/* <Link
-             to="/Login"
+          <Link
+             to="/registrarse"
+             className="flex items-center gap-1 p-1 font-bold hover:scale-125 transition-all"
           >
+            <CastleIcon/>
             <Button variant="text" size="sm" color="white" fullWidth>
-                Login
+                Se parte de la historia
             </Button>
-          </Link> */}
+          </Link>
         </div>
 
         <button onClick={() => setOpenNav(!openNav)} className="ml-auto text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent  lg:hidden box-border">
