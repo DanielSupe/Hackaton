@@ -6,12 +6,12 @@ const LayautMentor = () => {
 
     const history = useNavigate();
 
-    {/**useEffect(()=>{
+    useEffect(()=>{
         const user = obtenerUser()
         if(!user?.heroes){
             history("/")
         }
-    },[])**/}
+    },[])
 
   return (
     <><Outlet/></>

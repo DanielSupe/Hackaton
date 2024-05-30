@@ -10,9 +10,10 @@ import Awards from './pages/Awards';
 import Layaut from './common/components/LayautMentor';
 import Inicio from './pages/Inicio';
 import Logout from './common/components/Logout';
-import LayautHero from './common/components/LayautHero';
-import HomeHero from './pages/HomeHero';
 import Questionnaire from './pages/Questionnaire';
+import LayautHeroe from './common/components/LayautHeroe';
+import HomeHeroe from './pages/HomeHeroe';
+
 
 
 function App() {
@@ -35,14 +36,9 @@ function App() {
           <Route path="/Inicio/Mentor/premios" element={<Awards/>} />
         </Route>
 
-
-        <Route path="/Inicio/Hero" element={<LayautHero/>}>
-          <Route index element={<HomeHero/>} />  
-          <Route path="/Inicio/Hero/cuestionario" element={<Questionnaire />} />  
-        </Route>
-
         <Route path="/Inicio/Heroe" element={<LayautHeroe/>}>
           <Route index element={<HomeHeroe/>} />  
+          <Route path="/Inicio/Heroe/cuestionario" element={<Questionnaire />} /> 
         </Route>
 
 
