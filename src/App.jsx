@@ -10,6 +10,8 @@ import Awards from './pages/Awards';
 import Layaut from './common/components/LayautMentor';
 import Inicio from './pages/Inicio';
 import Logout from './common/components/Logout';
+import LayautHeroe from './common/components/LayautHeroe';
+import HomeHeroe from './pages/HomeHeroe';
 
 
 function App() {
@@ -30,6 +32,10 @@ function App() {
           <Route index element={<HomeMentor/>} />  
           <Route path="/Inicio/Mentor/dashboard" element={<Dashboard />} />  
           <Route path="/Inicio/Mentor/premios" element={<Awards/>} />
+        </Route>
+
+        <Route path="/Inicio/Heroe" element={<LayautHeroe/>}>
+          <Route index element={<HomeHeroe/>} />  
         </Route>
 
 
