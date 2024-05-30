@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { obtenerUser } from '../../helpers/tools_helper'
 import { useNavigate } from 'react-router-dom'
 import { Outlet } from 'react-router-dom';
-const LayautMentor = () => {
+const LayautHero = () => {
 
     const history = useNavigate();
 
@@ -18,4 +18,4 @@ const LayautMentor = () => {
   )
 }
 
-export default LayautMentor
+export default LayautHero;
