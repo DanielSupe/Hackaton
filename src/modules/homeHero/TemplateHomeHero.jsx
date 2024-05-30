@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import SideMenu from "./components/SideMenu";
+import SideMenu from "../homeMentor/components/SideMenu";
 
-export function TemplateHomeMentor() {
+export function TemplateHomeHero() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleToggleMenu = (isOpen) => {
@@ -18,7 +18,7 @@ export function TemplateHomeMentor() {
         }`}
         
       >
-        <main className="p-10">
+        <main className=" p-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl font-bold text-black mb-5 animate-fadeIn">
               ¡Bienvenido al inicio de tu aventura mentor!
@@ -105,4 +105,4 @@ export function TemplateHomeMentor() {
     </div>
   );
 }
-export default TemplateHomeMentor;
+export default TemplateHomeHero;
