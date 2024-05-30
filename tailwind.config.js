@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundColor:{
+        
+      },
       animation: {
         fadeIn: 'fadeIn 2s ease-in-out',
         slideIn: 'slideIn 1s ease-out',

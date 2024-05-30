@@ -41,6 +41,10 @@ function App() {
           <Route path="/Inicio/Hero/cuestionario" element={<Questionnaire />} />  
         </Route>
 
+        <Route path="/Inicio/Heroe" element={<LayautHeroe/>}>
+          <Route index element={<HomeHeroe/>} />  
+        </Route>
+
 
         {/* para poner un layaut */}
 
