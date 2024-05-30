@@ -11,3 +11,7 @@
 .filter-dropdown-select .selected-option {
   margin-top: -10px;
 }
+
+html {
+  scroll-behavior: smooth; /* Esta línea habilita el scroll suave */
+}

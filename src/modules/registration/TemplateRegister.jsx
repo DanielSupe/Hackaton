@@ -129,10 +129,10 @@ const Register = () => {
               <option value="" disabled>
                 Selecciona tu rol
               </option>
-              <option value="guerrero">Guerrero</option>
+              <option value="arquero">Arquero</option>
               <option value="mago">Mago</option>
               <option value="caballero">Caballero</option>
-              <option value="sabio">Sabio</option>
+              <option value="guerrero">Guerrero</option>
             </select>
 
             <Button onClick={()=>{createHeroe()}} disabled={disabled} className={`text-[#fff] bg-[#ff4b2b] text-[12px] font-bold py-[12px] px-[55px] m-[20px] rounded-[20px] border border-solid border-[#ff4b2b] outline-none tracking-[1px] uppercase buttonRegistration ${disabled ? "cursor-no-drop":"   hover:bg-white hover:text-red-500 cursor-pointer"}`}>
