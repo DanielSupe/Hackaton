@@ -7,6 +7,11 @@
   padding: 0;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
+
+.filter-dropdown-select .selected-option {
+  margin-top: -10px;
+}
+
 html {
   scroll-behavior: smooth; /* Esta línea habilita el scroll suave */
 }
