@@ -15,7 +15,7 @@ export const LogsHeroSlice = createSlice({
       state.Loading = true;
     },
     getLogsHeroSuccest: (state, action) => {
-      state.statistics = action.payload;
+      state.logs = action.payload;
       state.exito = true;
       state.Loading = false;
     },

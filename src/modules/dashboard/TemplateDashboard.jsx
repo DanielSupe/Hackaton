@@ -37,8 +37,10 @@ const TemplateDashboard = () => {
                 className="w-[55px] h-[55px] inline-block mr-[40px]"
               />
               <div className="flex flex-col items-end">
-                <h2 className="text-xl font-semibold mb-3">Número de Coronas</h2>
-                <p>{statistics.totalCrowns}</p>
+                <h2 className="text-xl font-semibold mb-3">
+                  Número de Coronas
+                </h2>
+                <p>{statistics.crowns}</p>
               </div>
             </div>
             <div className="bg-white p-5 rounded shadow w-[87%] flex flex-row">
@@ -48,7 +50,9 @@ const TemplateDashboard = () => {
                 className="w-[55px] h-[55px] inline-block mr-[40px]"
               />
               <div className="flex flex-col items-end">
-                <h2 className="text-xl font-semibold mb-3">Cuestionarios Realizados</h2>
+                <h2 className="text-xl font-semibold mb-3">
+                  Cuestionarios Realizados
+                </h2>
                 <p>{statistics.totalQuestionnaires}</p>
               </div>
             </div>
@@ -59,21 +63,35 @@ const TemplateDashboard = () => {
                 className="w-[55px] h-[55px] inline-block mr-[40px]"
               />
               <div className="flex flex-col items-end">
-                <h2 className="text-xl font-semibold mb-3">Cantidad de Preguntas Correctas</h2>
+                <h2 className="text-xl font-semibold mb-3">
+                  Cantidad de Preguntas Correctas
+                </h2>
                 <p>{statistics.correctAnswers}</p>
               </div>
             </div>
             <div className="bg-white p-5 rounded shadow">
-              <h2 className="text-xl font-semibold mb-3">Cuestionarios Realizados</h2>
-              <Bar data={statistics.quizLogsByDay} />
+              <h2 className="text-xl font-semibold mb-3">
+                Cuestionarios Realizados
+              </h2>
+              {statistics.quizLogsByDay && (
+                <Bar data={statistics.quizLogsByDay} />
+              )}
             </div>
             <div className="bg-white p-5 rounded shadow">
-              <h2 className="text-xl font-semibold mb-3">Preguntas Correctas por materia</h2>
-              <Line data={statistics.correctAnswersBySubject} />
+              <h2 className="text-xl font-semibold mb-3">
+                Preguntas Correctas por materia
+              </h2>
+              {statistics.correctAnswersBySubject && (
+                <Line data={statistics.correctAnswersBySubject} />
+              )}
             </div>
             <div className="bg-white p-5 rounded shadow">
-              <h2 className="text-xl font-semibold mb-3">Preguntas Incorrectas Por Materia</h2>
-              <Pie data={statistics.incorrectAnswersBySubject} />
+              <h2 className="text-xl font-semibold mb-3">
+                Preguntas Incorrectas Por Materia
+              </h2>
+              {statistics.incorrectAnswersBySubject && (
+                <Pie data={statistics.incorrectAnswersBySubject} />
+              )}
             </div>
           </div>
         </main>
