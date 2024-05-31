@@ -10,6 +10,7 @@ import { UpdateAwards, getAwards } from "../../store/Slices/Awards/AwardSlice";
 import { SwalAlert } from "../../helpers/swals";
 import AwardsList from "../../common/components/AwardsList";
 import StoreIcon from '@mui/icons-material/Store';
+import Swal from "sweetalert2";
 export function TemplateAwards() {
 
 
@@ -40,9 +41,29 @@ export function TemplateAwards() {
 
 
   const deleteFile = (titleFile) => {
-    let list = [...awards];
-    const newArray = list.filter(item => item.Titulo !== titleFile);
-    dispatch(UpdateAwards(newArray));
+
+    Swal.fire({
+      text: `¿Estas seguro de \n borrar el premio "${titleFile}"?`,
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No',
+      reverseButtons: true,
+      customClass: {
+        popup: 'large-text',
+        cancelButton: "cancelButtonSwal",
+        confirmButton:"confirmButtonSwal" // Aplica la clase de tamaño de fuente al cuadro de diálogo
+      },
+      didOpen: () => {
+        const container = document.querySelector('.swal2-container');
+        container.style.zIndex = '9999';
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        let list = [...awards];
+        const newArray = list.filter(item => item.Titulo !== titleFile);
+        dispatch(UpdateAwards(newArray));
+      } 
+    });
   }
 
   const onClonePopup = () => {
@@ -117,7 +138,7 @@ export function TemplateAwards() {
                 <div className=" w-[40%] h-auto box-border md:mr-12"><Avatar src="/Images/HomeMentor/Familia.png"/></div>
                 <div className="w-[60%] h-auto">
                   <span className=" text-start font-medium text-2xl flex">Vista Previa <StoreIcon/></span>
-                  {awards && awards.length > 0 ? (<AwardsList listado={awards}/>):null}
+                  {awards && awards.length > 0 ? (<AwardsList listado={awards}/>):"Agrega unos premios para tu heroe y podras verlos aqui!"}
                 </div>
               </div>
             </div>
