@@ -11,53 +11,48 @@ import {
   Checkbox,
 } from "@material-tailwind/react";
 import { FingerPrintIcon, UsersIcon } from "@heroicons/react/24/solid";
-import { PageTitle, Footer } from "@/widgets/layout";
+import { PageTitle, Footer, Navbar } from "@/widgets/layout";
 import { FeatureCard, TeamCard } from "@/widgets/cards";
 import { featuresData, teamData, contactData } from "@/data";
-import { Navbar } from "@/widgets/layout";
 import { useDispatch } from "react-redux";
-import HomeIcon from '@mui/icons-material/Home';
-import AccessibilityIcon from '@mui/icons-material/Accessibility';
-import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
-import InfoIcon from '@mui/icons-material/Info';
+import HomeIcon from "@mui/icons-material/Home";
+import AccessibilityIcon from "@mui/icons-material/Accessibility";
+import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
+import InfoIcon from "@mui/icons-material/Info";
 export function TemplateHome() {
-
   const dispatch = useDispatch();
 
-
-
-   const routes = [
-  {
-    name: "home",
-    path: "/home",
-    icon: <HomeIcon/>,
-    element: <TemplateHome />,
-  },
-  {
-    name: "Roles",
-    href: "#RolesHome",
-    icon: <AccessibilityIcon/>,
-    element: <TemplateHome />,
-  },
-  {
-    name: "Informacion",
-    href: "#RolesHome",
-    icon: <InfoIcon/>,
-    element: <TemplateHome />,
-  },
-  {
-    name: "Entrar",
-    icon: <MeetingRoomIcon/>,
-    path: "/iniciarSesion",
-    element: <TemplateHome />,
-  },
-  
-];
+  const routes = [
+    {
+      name: "home",
+      path: "/home",
+      icon: <HomeIcon />,
+      element: <TemplateHome />,
+    },
+    {
+      name: "Roles",
+      href: "#RolesHome",
+      icon: <AccessibilityIcon />,
+      element: <TemplateHome />,
+    },
+    {
+      name: "Informacion",
+      href: "#RolesHome",
+      icon: <InfoIcon />,
+      element: <TemplateHome />,
+    },
+    {
+      name: "Entrar",
+      icon: <MeetingRoomIcon />,
+      path: "/iniciarSesion",
+      element: <TemplateHome />,
+    },
+  ];
 
   return (
     <>
-      <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32">
-        <div className="container absolute top-0 z-10  p-4">
+      <div className="relative flex h-screen pt-16 pb-32">
+        <div className="container absolute top-0 z-10 flex justify-between p-4">
           <Navbar routes={routes} />
         </div>
         <div className="absolute top-0 h-full w-full bg-[url('/Images/Home/image_1.jpg')] bg-cover bg-center" />
@@ -66,14 +61,12 @@ export function TemplateHome() {
         <div className="max-w-8xl container relative mx-auto">
           <div className="flex flex-wrap items-center">
             <div className="ml-auto mr-auto w-full px-4 text-center lg:w-8/12">
+              <img className="w-auto h-[250px] m-auto" src="./Images/Home/logoWarrior.png" alt="logo" />
               <Typography
-                variant="h1"
+                variant="lead"
                 color="white"
-                className="mb-6 font-black text-[30px] pt-[40px]"
+                className="opacity-80"
               >
-                ¡Querido héroe inicia tu historia con nosotros!
-              </Typography>
-              <Typography variant="lead" color="white" className="opacity-80 pt-[40px]">
                 Es un honor tenerte aquí en el comienzo de tu gran aventura. En
                 este lugar, te preparamos para enfrentar desafíos, superar
                 obstáculos y alcanzar logros asombrosos. Cada paso que tomes te
@@ -89,77 +82,52 @@ export function TemplateHome() {
       </div>
       <section className="-mt-32 bg-white px-4 pb-20 pt-20">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 ">
-            {featuresData.map(({ color, title, icon, description }) => (
-              <FeatureCard
-                key={title}
-                color={color}
-                title={title}
-                icon={React.createElement(icon, {
-                  className: "w-5 h-5 text-black",
-                })}
-                description={description}
-              />
-            ))}
-          </div>
           <div className="mt-32 flex flex-wrap items-center">
-            <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
-              <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-blue-gray-900 p-2 text-center shadow-lg">
-                <FingerPrintIcon className="h-8 w-8 text-black " />
-              </div>
+            <div className="mx-auto -mt-[70px] w-full px-4 md:w-5/12">
               <Typography
-                variant="h3"
-                className="mb-3 font-bold"
+                variant=""
+                className="mb-3 font-bold text-[30px]"
                 color="blue-gray"
               >
-                Working with us is a pleasure
+                La Fuerza del Trabajo en Equipo
               </Typography>
-              <Typography className="mb-8 font-normal text-blue-gray-500">
-                Dont let your uses guess by attaching tooltips and popoves to
-                any element. Just make sure you enable them first via
-                JavaScript.
+              <Typography className="mb-8 pt-10 font-normal text-[20px] text-blue-gray-500">
+                El éxito de esta travesía depende de la colaboración entre el
+                mentor y el héroe. Juntos, combinan la sabiduría y la
+                experiencia del mentor con la energía y la innovación del héroe.
+                Esta sinergia no solo facilita el aprendizaje y la resolución de
+                problemas, sino que también impulsa la creatividad y la
+                innovación.
                 <br />
                 <br />
-                The kit comes with three pre-built pages to help you get started
-                faster. You can change the text and images and youre good to go.
-                Just make sure you enable them first via JavaScript.
+                Al trabajar en equipo, se superan desafíos que serían imposibles
+                de enfrentar individualmente. La clave está en la comunicación
+                abierta, la confianza mutua y el compromiso compartido para
+                alcanzar metas extraordinarias.
               </Typography>
-              <Button
-                className=" bg-black text-white px-4 py-2"
-                variant="filled"
-              >
-                read more
-              </Button>
             </div>
 
             <div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
               <Card className="shadow-lg border shadow-gray-500/10 rounded-lg box-border p-4 Working with us is a pleasure">
-                <CardHeader floated={false} className="relative h-56">
+                <CardHeader floated={false} className="relative h-[330px]">
                   <img
                     alt="Card Image"
-                    src="/img/teamwork.png"
+                    src="./Images/Home/imageHome1.jpeg"
                     className="h-full w-full"
                   />
                 </CardHeader>
                 <CardBody>
                   <Typography
-                    variant="small"
-                    color="blue-gray"
-                    className="font-normal"
-                  >
-                    Enterprise
-                  </Typography>
-                  <Typography
                     variant="h5"
                     color="blue-gray"
                     className="mb-3 mt-2 font-bold"
                   >
-                    Top Notch Services
+                    Consejo
                   </Typography>
                   <Typography className="font-normal text-blue-gray-500">
-                    The Arctic Ocean freezes every winter and much of the
-                    sea-ice then thaws every summer, and that process will
-                    continue whatever happens.
+                    El apoyo incondicional del mentor brinda al héroe la
+                    confianza necesaria para explorar nuevas ideas y tomar
+                    riesgos, acelerando su crecimiento y desarrollo personal.
                   </Typography>
                 </CardBody>
               </Card>
@@ -167,36 +135,38 @@ export function TemplateHome() {
           </div>
         </div>
       </section>
-      <section id="RolesHome" className="px-4 pt-20 pb-48 bg-[url('/Images/Home/FondoRoles.png')] bg-cover bg-center">
+      <section
+        id="RolesHome"
+        className="px-4 pt-20 pb-48 bg-[url('/Images/Home/FondoRoles.png')] bg-cover bg-center"
+      >
         <div className="container mx-auto">
-          <PageTitle section="Roles" heading="Escoge tu rol favorito!">
-           Tú eres el héroe. Como guerrero, lucharás con un hacha poderosa. Si eres caballero, usarás espada y escudo. Como mago, lanzarás hechizos mágicos. Y como arquero, dispararás flechas certeras. ¡Elige tu destino y salva el reino! ¿Qué héroe serás?
+          <PageTitle section="Roles" heading="!Escoge tu rol favorito!">
+            Tú eres el héroe. Como guerrero, lucharás con un hacha poderosa. Si
+            eres caballero, usarás espada y escudo. Como mago, lanzarás hechizos
+            mágicos. Y como arquero, dispararás flechas certeras. ¡Elige tu
+            destino y salva el reino! ¿Qué héroe serás?
           </PageTitle>
           <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
             {teamData.map(({ img, name }) => (
-              <TeamCard
-                key={name}
-                img={img}
-                name={name}
-              />
+              <TeamCard key={name} img={img} name={name} />
             ))}
           </div>
         </div>
       </section>
-      <section className="relative bg-white py-24 px-4">
+      <section className="relative bg-white pt-24 px-4">
         <div className="container mx-auto">
-          <PageTitle section="Co-Working" heading="Build something">
-            Put the potentially record low maximum sea ice extent tihs year down
-            to low ice. According to the National Oceanic and Atmospheric
-            Administration, Ted, Scambos.
+          <PageTitle section="¿Que gánaras con nostros?">
+            <img className="w-auto h-auto m-auto" src="./Images/Home/imageHome2.png" alt="celebracion" />
+            Tendras grandes beneficios en este viaje que estara lleno de
+            aventuras y grandes desafios, algunos de estos beneficios son:
           </PageTitle>
-          <div className="mx-auto mt-20 mb-48 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto mt-20 mb-48 grid max-w-[1200px] grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
             {contactData.map(({ title, icon, description }) => (
               <Card
                 key={title}
                 color="transparent"
                 shadow={false}
-                className="text-center text-blue-gray-900"
+                className="text-center text-blue-gray-900 bg-[url('/Images/Home/FondoRoles.png')] bg-cover w-[380px] h-[220px]"
               >
                 <div className="mx-auto mb-6 grid h-14 w-14 place-items-center rounded-full bg-blue-gray-900 shadow-lg shadow-gray-500/20">
                   {React.createElement(icon, {
