@@ -3,7 +3,7 @@ import {put, call, takeEvery, takeLatest} from "redux-saga/effects"
 import { SwalAlert } from "../../../helpers/swals";
 import { obtenerUser } from "../../../helpers/tools_helper";
 import { urlBackend } from "../../../helpers/constant";
-import { getAwards, getAwardsSuccess } from "./AwardSlice";
+import { GetHeroeSuccess, getAwards, getAwardsSuccess } from "./AwardSlice";
 
 const getAwardsUserAxios = async()=>{
     const user = obtenerUser();
@@ -11,7 +11,8 @@ const getAwardsUserAxios = async()=>{
         const rep = await axios.get(`${urlBackend}/mentor/${user.id}`)
         return rep.data.awards;
     } else if (user.mentor) {
-        console.log("")
+        const rep = await axios.get(`${urlBackend}/mentor/${user.mentor.id}`)
+        return rep.data.awards;
     }
 }   
 
@@ -55,10 +56,35 @@ function* UpdateAwardsUser(action) {
 }
 
 
+//-------------------------------
+
+
+const getHeroUserAxios = async()=>{
+    const user = obtenerUser();
+     if (user.mentor) {
+        const rep = await axios.get(`${urlBackend}/hero/${user.id}`)
+        return rep.data;
+    }
+}   
+
+
+
+function* getHeroUser() {
+    try {
+        const resp = yield call(getHeroUserAxios)
+         yield put(GetHeroeSuccess(resp))
+    } catch (error) {
+        console.log(error,"error")
+        SwalAlert("Error",`${error.response.data.message[0]}`,"error")
+    }
+    
+}
+
 
 function* AwardSaga (){
     yield takeEvery('Award/getAwards', getAwardsUser)
     yield takeEvery('Award/UpdateAwards', UpdateAwardsUser)
+    yield takeEvery('Award/GetHeroe', getHeroUser)
 }
 
 export default AwardSaga;

@@ -2,6 +2,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+    heroe:{},
     awards:false,
     Loading: false,
     error:{},
@@ -34,8 +35,17 @@ export const AwardSlice = createSlice({
             state.Loading = false;
         },
 
+
+        GetHeroe: (state,action)=>{
+            state.Loading = true;
+        },
+        GetHeroeSuccess: (state,action)=>{
+            state.heroe = action.payload
+            state.Loading = false;
+        },
+
     }
 })
 
-export const {getAwards,getAwardsSuccess,getAwardsFail,UpdateAwards,UpdateAwardsSuccess,UpdateAwardsFail } = AwardSlice.actions;
+export const {getAwards,getAwardsSuccess,getAwardsFail,UpdateAwards,UpdateAwardsSuccess,UpdateAwardsFail,GetHeroe,GetHeroeSuccess } = AwardSlice.actions;
 export default AwardSlice.reducer

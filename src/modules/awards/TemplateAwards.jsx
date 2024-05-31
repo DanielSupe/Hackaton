@@ -81,7 +81,6 @@ export function TemplateAwards() {
   }, [form])
 
   useEffect(()=>{
-    console.log("entro aqui2")
     dispatch(getAwards())
   },[])
 
@@ -111,11 +110,6 @@ export function TemplateAwards() {
       onClonePopup()
     }
   }
-
-
-  useEffect(()=>{
-    console.log(awards,"estan aqui")
-  },[awards])
 
 
   return (
