@@ -13,6 +13,7 @@ import Logout from './common/components/Logout';
 import Questionnaire from './pages/Questionnaire';
 import LayautHeroe from './common/components/LayautHeroe';
 import HomeHeroe from './pages/HomeHeroe';
+import TableMentor from './pages/TableMentor';
 
 
 
@@ -34,6 +35,7 @@ function App() {
           <Route index element={<HomeMentor/>} />  
           <Route path="/Inicio/Mentor/dashboard" element={<Dashboard />} />  
           <Route path="/Inicio/Mentor/premios" element={<Awards/>} />
+          <Route path="/Inicio/Mentor/tabla" element={<TableMentor/>} />
         </Route>
 
         <Route path="/Inicio/Heroe" element={<LayautHeroe/>}>
