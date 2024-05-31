@@ -17,7 +17,7 @@ const SideMenu = ({ onToggle }) => {
 
   useEffect(() => {
     onToggle(isOpen);
-  }, [isOpen, onToggle]);
+  }, [isOpen]);
 
   return (
     <div className="relative">
