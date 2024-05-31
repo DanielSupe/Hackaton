@@ -25,7 +25,7 @@ export function TemplateHome() {
   const routes = [
     {
       name: "home",
-      path: "/home",
+      href: "#info",
       icon: <HomeIcon />,
       element: <TemplateHome />,
     },
@@ -37,7 +37,7 @@ export function TemplateHome() {
     },
     {
       name: "Informacion",
-      href: "#RolesHome",
+      href: "#Informacion",
       icon: <InfoIcon />,
       element: <TemplateHome />,
     },
@@ -80,7 +80,7 @@ export function TemplateHome() {
           </div>
         </div>
       </div>
-      <section className="-mt-32 bg-white px-4 pb-20 pt-20">
+      <section id="info" className="-mt-32 bg-white px-4 pb-20 pt-20">
         <div className="container mx-auto">
           <div className="mt-32 flex flex-wrap items-center">
             <div className="mx-auto -mt-[70px] w-full px-4 md:w-5/12">
@@ -153,9 +153,9 @@ export function TemplateHome() {
           </div>
         </div>
       </section>
-      <section className="relative bg-white pt-24 px-4">
+      <section id="Informacion" className="relative bg-white pt-24 px-4">
         <div className="container mx-auto">
-          <PageTitle section="¿Que gánaras con nostros?">
+          <PageTitle section="¿Que gánaras con nosotros?">
             <img className="w-auto h-auto m-auto" src="./Images/Home/imageHome2.png" alt="celebracion" />
             Tendras grandes beneficios en este viaje que estara lleno de
             aventuras y grandes desafios, algunos de estos beneficios son:
