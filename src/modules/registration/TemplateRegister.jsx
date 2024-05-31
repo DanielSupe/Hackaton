@@ -3,7 +3,11 @@ import "./styles.css";
 import { useState } from "react";
 import { Button } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { RegisterUserHeroe, RegisterUserMentor, ReinicioLog } from "../../store/Slices/register/RegisterSlice";
+import {
+  RegisterUserHeroe,
+  RegisterUserMentor,
+  ReinicioLog,
+} from "../../store/Slices/register/RegisterSlice";
 import { SwalAlert } from "../../helpers/swals";
 import { useNavigate } from "react-router-dom";
 
@@ -11,22 +15,31 @@ const Register = () => {
   const dispatch = useDispatch();
   const history = useNavigate();
 
-  const { idPadre,exito} = useSelector((state) => ({
+  const { idPadre, exito } = useSelector((state) => ({
     idPadre: state.Register.idPadre,
     exito: state.Register.exito,
-}))
+  }));
 
   const [isRightPanelActive, setIsRightPanelActive] = useState(false);
 
-  const [form,setForm] = useState({usernameMentor:"",emailMentor:"",passwordMentor:"",usernameHero:"",emailHero:"",passwordHero:"",role:"",idpadre:""});
+  const [form, setForm] = useState({
+    usernameMentor: "",
+    emailMentor: "",
+    passwordMentor: "",
+    usernameHero: "",
+    emailHero: "",
+    passwordHero: "",
+    role: "",
+    idpadre: "",
+  });
 
-  const [disabled,setDisabled] = useState(true);
+  const [disabled, setDisabled] = useState(true);
 
   const handleSignUpClick = () => {
-    if(form.idpadre){
+    if (form.idpadre) {
       setIsRightPanelActive(true);
-    }else{
-      SwalAlert("Primero los mayores!","","error")
+    } else {
+      SwalAlert("Primero los mayores!", "", "error");
     }
   };
 
@@ -34,54 +47,62 @@ const Register = () => {
     setIsRightPanelActive(false);
   };
 
-
-  const handleForm = (nameKey,change) => {
+  const handleForm = (nameKey, change) => {
     setForm({
       ...form,
-      [nameKey]:change
-    })
-  }
+      [nameKey]: change,
+    });
+  };
 
-  useEffect(()=>{
+  useEffect(() => {
     setForm({
       ...form,
-      idpadre: idPadre
-    })
-  },[idPadre])
+      idpadre: idPadre,
+    });
+  }, [idPadre]);
 
-  useEffect(()=>{
-    console.log(form)
-    const {usernameMentor,emailMentor,passwordMentor, idpadre,usernameHero,emailHero,passwordHero,role}= form
-    if((usernameMentor && emailMentor && passwordMentor) && !idpadre ){
-      setDisabled(false)
+  useEffect(() => {
+    console.log(form);
+    const {
+      usernameMentor,
+      emailMentor,
+      passwordMentor,
+      idpadre,
+      usernameHero,
+      emailHero,
+      passwordHero,
+      role,
+    } = form;
+    if (usernameMentor && emailMentor && passwordMentor && !idpadre) {
+      setDisabled(false);
+    } else if (
+      usernameHero &&
+      emailHero &&
+      passwordHero &&
+      role &&
+      idpadre &&
+      isRightPanelActive
+    ) {
+      setDisabled(false);
+    } else {
+      setDisabled(true);
     }
-    else if((usernameHero && emailHero && passwordHero && role) && idpadre && isRightPanelActive ){
-      setDisabled(false)
+  }, [form, isRightPanelActive]);
+
+  useEffect(() => {
+    if (exito) {
+      history("/iniciarSesion");
+      dispatch(ReinicioLog());
     }
-    else{
-      setDisabled(true)
-    }
-  },[form,isRightPanelActive])
+  }, [exito]);
 
+  const createMentor = () => {
+    dispatch(RegisterUserMentor(form));
+  };
 
-  useEffect(()=>{
-    if(exito){
-      history('/iniciarSesion')
-      dispatch(ReinicioLog())
-    }
-  },[exito])
-
-
-
-
-  const createMentor = ()=>{
-    dispatch(RegisterUserMentor(form))
-  } 
-
-  const createHeroe = ()=>{
-    dispatch(RegisterUserHeroe(form))
-  }
-
+  const createHeroe = () => {
+    dispatch(RegisterUserHeroe(form));
+  };
 
   return (
     <div className="flex text-start items-center justify-center flex-col min-h-screen box-border">
@@ -99,7 +120,9 @@ const Register = () => {
             <input
               className="bg-[#eee] py-[12px] px-[15px] my-[8px] mx-[15px] w-[100%] rounded-[5px] outline-none border-none"
               value={form.usernameHero}
-              onChange={(e)=>{handleForm("usernameHero",e.target.value)}}
+              onChange={(e) => {
+                handleForm("usernameHero", e.target.value);
+              }}
               type="text"
               name="username"
               placeholder="Usuario"
@@ -107,7 +130,9 @@ const Register = () => {
             <input
               className="bg-[#eee] py-[12px] px-[15px] my-[8px] mx-[15px] w-[100%] rounded-[5px] outline-none border-none"
               value={form.emailHero}
-              onChange={(e)=>{handleForm("emailHero",e.target.value)}}
+              onChange={(e) => {
+                handleForm("emailHero", e.target.value);
+              }}
               type="email"
               name="email"
               placeholder="Correo electronico"
@@ -115,7 +140,9 @@ const Register = () => {
             <input
               className="bg-[#eee] py-[12px] px-[15px] my-[8px] mx-[15px] w-[100%] rounded-[5px] outline-none border-none"
               value={form.passwordHero}
-              onChange={(e)=>{handleForm("passwordHero",e.target.value)}}
+              onChange={(e) => {
+                handleForm("passwordHero", e.target.value);
+              }}
               type="password"
               name="pswd"
               placeholder="Contraseña"
@@ -124,7 +151,9 @@ const Register = () => {
               className="bg-[#eee] py-[12px] px-[15px] my-[8px] mx-[15px] w-[100%] rounded-[5px] outline-none border-none"
               name="role"
               value={form.role}
-              onChange={(e)=>{handleForm("role",e.target.value)}}
+              onChange={(e) => {
+                handleForm("role", e.target.value);
+              }}
             >
               <option value="" disabled>
                 Selecciona tu rol
@@ -135,23 +164,36 @@ const Register = () => {
               <option value="guerrero">Guerrero</option>
             </select>
 
-            <Button onClick={()=>{createHeroe()}} disabled={disabled} className={`text-[#fff] bg-[#ff4b2b] text-[12px] font-bold py-[12px] px-[55px] m-[20px] rounded-[20px] border border-solid border-[#ff4b2b] outline-none tracking-[1px] uppercase buttonRegistration ${disabled ? "cursor-no-drop":"   hover:bg-white hover:text-red-500 cursor-pointer"}`}>
+            <Button
+              onClick={() => {
+                createHeroe();
+              }}
+              disabled={disabled}
+              className={`text-[#fff] bg-[#ff4b2b] text-[12px] font-bold py-[12px] px-[55px] m-[20px] rounded-[20px] border border-solid border-[#ff4b2b] outline-none tracking-[1px] uppercase buttonRegistration ${
+                disabled
+                  ? "cursor-no-drop"
+                  : "   hover:bg-white hover:text-red-500 cursor-pointer"
+              }`}
+            >
               Registrate
             </Button>
           </form>
         </div>
 
-
         {/* //Mentor------------------------------------------------------------- */}
         <div className="sign-in">
           <form className="bg-[#fff] flex items-center justify-center flex-col px-[50px] h-[100%] text-center">
             <h1 className="text-[30px] font-bold m-0">
-              {idPadre ? "Ya tienes tu cuenta! Solo falta el heroe":"¡Mentor, aquí crearas tu cuenta!"}
+              {idPadre
+                ? "Ya tienes tu cuenta! Solo falta el heroe"
+                : "¡Mentor, aquí crearas tu cuenta!"}
             </h1>
             <input
               className="bg-[#eee] py-[12px] px-[15px] my-[8px] mx-[15px] w-[100%] rounded-[5px] outline-none border-none"
               value={form.usernameMentor}
-              onChange={(e)=>{handleForm("usernameMentor",e.target.value)}}
+              onChange={(e) => {
+                handleForm("usernameMentor", e.target.value);
+              }}
               type="text"
               name="username"
               placeholder="Usuario"
@@ -159,7 +201,9 @@ const Register = () => {
             <input
               className="bg-[#eee] py-[12px] px-[15px] my-[8px] mx-[15px] w-[100%] rounded-[5px] outline-none border-none"
               value={form.emailMentor}
-              onChange={(e)=>{handleForm("emailMentor",e.target.value)}}
+              onChange={(e) => {
+                handleForm("emailMentor", e.target.value);
+              }}
               type="email"
               name="email"
               placeholder="Correo electronico"
@@ -167,7 +211,9 @@ const Register = () => {
             <input
               className="bg-[#eee] py-[12px] px-[15px] my-[8px] mx-[15px] w-[100%] rounded-[5px] outline-none border-none"
               value={form.passwordMentor}
-              onChange={(e)=>{handleForm("passwordMentor",e.target.value)}}
+              onChange={(e) => {
+                handleForm("passwordMentor", e.target.value);
+              }}
               type="password"
               name="pswd"
               placeholder="Contraseña"
@@ -179,10 +225,19 @@ const Register = () => {
               ¿Olvidaste tu contraseña?
             </a>
 
-            <Button disabled={disabled} onClick={()=>{createMentor()}} className={`text-[#fff] bg-[#ff4b2b] text-[12px] font-bold py-[12px] px-[55px] m-[20px] rounded-[20px] border border-solid border-[#ff4b2b] outline-none tracking-[1px] uppercase buttonRegistration ${disabled ? "cursor-no-drop":"   hover:bg-white hover:text-red-500 cursor-pointer"}`}>
+            <Button
+              disabled={disabled}
+              onClick={() => {
+                createMentor();
+              }}
+              className={`text-[#fff] bg-[#ff4b2b] text-[12px] font-bold py-[12px] px-[55px] m-[20px] rounded-[20px] border border-solid border-[#ff4b2b] outline-none tracking-[1px] uppercase buttonRegistration ${
+                disabled
+                  ? "cursor-no-drop"
+                  : "   hover:bg-white hover:text-red-500 cursor-pointer"
+              }`}
+            >
               Entra
             </Button>
-
           </form>
         </div>
         <div className="overlay-container absolute top-0 left-[50%] w-[50%] h-[100%] overflow-hidden">
