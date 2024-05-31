@@ -4,6 +4,7 @@ import MathQuiz from "./components/quiz2";
 import EnglishQuiz from "./components/quiz3";
 import GeographyQuiz from "./components/quiz4";
 import SpanishQuiz from "./components/quiz5";
+import SideMenu from "../homeMentor/components/SideMenu";
 
 const subjects = [
   {
@@ -34,6 +35,12 @@ const subjects = [
 ];
 
 const TemplateQuestionnaire = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [popUp, setPopUp] = useState(false);
+  const [disabled, setDisabled] = useState(true);
+  const handleToggleMenu = (isOpen) => {
+    setIsMenuOpen(isOpen);
+  };
   const [SelectedQuiz, setSelectedQuiz] = useState(null);
 
   const handleCardClick = (QuizComponent) => {
@@ -45,15 +52,24 @@ const TemplateQuestionnaire = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-no-repeat pt-[100px]"
-    style={{ backgroundImage: "url('/Images/Home/image_1.jpg')",
+    <div
+      className="min-h-screen flex flex-col items-center justify-center bg-no-repeat pt-[100px]"
+      style={{
+        backgroundImage: "url('/Images/Home/image_1.jpg')",
         backgroundSize: "100% 70%",
-        backgroundPosition: "top" 
-        }}>
-        <h1 className="text-[48px] font-bold mb-8 text-center">
-          ¡Bienvenido querido héroe a los Cuestionarios!
-        </h1>
-      
+        backgroundPosition: "top",
+      }}
+    >
+      <SideMenu onToggle={handleToggleMenu} />
+      <div
+        className={`transition-all duration-300 flex-grow h-auto ${
+          isMenuOpen ? "ml-64" : "ml-0 w-full"
+        }`}
+      >
+      <h1 className="text-[48px] font-bold mb-8 text-center">
+        ¡Bienvenido querido héroe a los Cuestionarios!
+      </h1>
+
       <div className="bg-white rounded-lg grid grid-cols-5 gap-8">
         {subjects.map((subject) => (
           <div
@@ -83,6 +99,7 @@ const TemplateQuestionnaire = () => {
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 };
