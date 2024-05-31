@@ -66,7 +66,7 @@ const TemplateQuestionnaire = () => {
           isMenuOpen ? "ml-64" : "ml-0 w-full"
         }`}
       >
-      <h1 className="text-[48px] font-bold mb-8 text-center">
+      <h1 className="text-[48px] text-white font-bold mb-8 text-center">
         ¡Bienvenido querido héroe a los Cuestionarios!
       </h1>
 

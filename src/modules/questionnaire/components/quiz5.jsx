@@ -17,7 +17,7 @@ const quiz5 = {
 
   quizTitle: "Cuestionario de Español para Niños",
   quizSynopsis:
-    "Este cuestionario está diseñado para ayudar a los niños con dificultades de aprendizaje a aprender sobre el idioma español de una manera divertida y fácil.",
+    "Este cuestionario está diseñado para mejorar tus habilidades de aprendizaje",
   questions: [
     {
       question: "¿Cuál es la letra que sigue después de la 'C' en el alfabeto?",

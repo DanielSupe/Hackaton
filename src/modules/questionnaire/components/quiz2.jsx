@@ -17,7 +17,7 @@ const quiz2 = {
 
   quizTitle: "Cuestionario de Matemáticas para Niños",
   quizSynopsis:
-    "Este cuestionario está diseñado para ayudar a los niños con dificultades de aprendizaje a aprender sobre matemáticas de una manera divertida y fácil.",
+    "Este cuestionario está diseñado para mejorar tus habilidades de aprendizaje",
   questions: [
     {
       question: "¿Cuánto es 2 + 2?",

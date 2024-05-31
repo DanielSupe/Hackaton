@@ -17,7 +17,7 @@ const quiz = {
 
   quizTitle: "Cuestionario de Biología para Niños",
   quizSynopsis:
-    "Este cuestionario está diseñado para ayudar a los niños con dificultades de aprendizaje a aprender sobre biología de una manera divertida y fácil.",
+    "Este cuestionario está diseñado para mejorar tus habilidades de aprendizaje",
   questions: [
     {
       question: "¿Cuál es el órgano que usamos para pensar?",

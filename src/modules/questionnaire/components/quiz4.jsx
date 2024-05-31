@@ -17,7 +17,7 @@ const quiz4 = {
 
   quizTitle: "Cuestionario de Geografía para Niños",
   quizSynopsis:
-    "Este cuestionario está diseñado para ayudar a los niños con dificultades de aprendizaje a aprender sobre geografía de una manera divertida y fácil.",
+    "Este cuestionario está diseñado para mejorar tus habilidades de aprendizaje",
   questions: [
     {
       question: "¿Cuál es el río más largo del mundo?",
