@@ -6,6 +6,7 @@ import QueryStatsIcon from '@mui/icons-material/QueryStats';
 import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import TableChartIcon from '@mui/icons-material/TableChart';
 import LogoutIcon from '@mui/icons-material/Logout';
 
 const SideMenu = ({ onToggle }) => {
@@ -55,10 +56,16 @@ const SideMenu = ({ onToggle }) => {
                 Estadísticas
               </Link>
             </li>
-            <li>
+            <li className='mb-4'>
               <Link to="/Inicio/Mentor/premios" className="block py-2 px-4 rounded hover:bg-gray-700 flex items-center">
                 <MilitaryTechIcon className='mr-3'/>
                 Premios
+              </Link>
+            </li>
+            <li className='mb-4'>
+              <Link to="/Inicio/Mentor/tabla" className="block py-2 px-4 rounded hover:bg-gray-700 flex items-center">
+                <TableChartIcon className='mr-3'/>
+                Tabla
               </Link>
             </li>
             <li>
