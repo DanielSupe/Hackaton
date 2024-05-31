@@ -1,11 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SideMenu from "../homeMentor/components/SideMenu";
+import { useDispatch, useSelector } from "react-redux";
+import { getLogsHero } from "../../store/Slices/LogsHero/LogsHeroSlice";
 
 const TemplateTableMentor = () => {
+
+  const { logs } = useSelector((state) => ({
+    logs: state.LogsHero.logs,
+  }));
+  const dispatch = useDispatch();
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleToggleMenu = (isOpen) => {
     setIsMenuOpen(isOpen);
   };
+
+  
+  useEffect(() => {
+    dispatch(getLogsHero());
+  }, [dispatch]);
 
   const [data, setData] = useState([
     { coronas: 10, mensaje: "Mensaje 1", createdAt: "2024-05-30" },

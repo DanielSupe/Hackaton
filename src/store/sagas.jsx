@@ -2,6 +2,8 @@ import createSagaMiddleware from "@redux-saga/core";
 import { all } from 'redux-saga/effects';
 import RegisterSaga from "./Slices/register/RegisterSaga";
 import LoginSaga from "./Slices/login/LoginSaga";
+import DashboardSaga from "./Slices/dashboard/DashboardSaga";
+import LogsHeroSaga from "./Slices/LogsHero/LogsHeroSaga";
 export const saga = createSagaMiddleware(
     
 )
@@ -11,6 +13,8 @@ export function* rootSaga() {
   yield all([
     RegisterSaga(),
     LoginSaga(),
+    DashboardSaga(),
+    LogsHeroSaga(),
 
 
 
