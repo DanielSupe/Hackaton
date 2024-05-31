@@ -1,27 +1,27 @@
 import {
-  BriefcaseIcon,
-  ChartBarIcon,
-  PlayIcon,
+  GiftIcon,
+  FaceSmileIcon,
+  AcademicCapIcon
 } from "@heroicons/react/24/solid";
 
 export const contactData = [
   {
-    title: "Excelent Services",
-    icon: BriefcaseIcon,
+    title: "Premios redimiendo tus coronas",
+    icon: GiftIcon,
     description:
-      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "Canjea tus coronas por increíbles premios y recompensas. Gana experiencias únicas y disfruta de beneficios exclusivos.",
   },
   {
-    title: "Grow Your Market",
-    icon: ChartBarIcon,
+    title: "Mejoras en tu aprendizaje",
+    icon: AcademicCapIcon,
     description:
-      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "Optimizaras tu proceso educativo con nuestras estrategias innovadoras. Potenciando tus habilidades y alcanza nuevas metas.",
   },
   {
-    title: "Launch Time",
-    icon: PlayIcon,
+    title: "Disfrutaras aprender",
+    icon: FaceSmileIcon,
     description:
-      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "Sumérgete en un entorno de aprendizaje interactivo y divertido. Descubre el placer de adquirir conocimientos cada día.",
   },
 ];
 
