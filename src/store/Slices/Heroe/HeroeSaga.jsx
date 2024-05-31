@@ -4,6 +4,7 @@ import { SwalAlert } from "../../../helpers/swals";
 import { obtenerUser } from "../../../helpers/tools_helper";
 import { urlBackend } from "../../../helpers/constant";
 import { buyAwardSuccess } from "./HeroeSlice";
+import { GetHeroe } from "../Awards/AwardSlice";
 
 
 //Update para mentor------------------------------------------------------------------------------
@@ -33,6 +34,7 @@ function* buyAward(action) {
         console.log("nuevo USERRRR", resp)
          yield put(buyAwardSuccess())
          SwalAlert("Listo","Premio Reclamado! ve con tu mentor","success")
+         yield put(GetHeroe())
     } catch (error) {
         SwalAlert("Error",`${error.response.data.message}`,"error")
     }

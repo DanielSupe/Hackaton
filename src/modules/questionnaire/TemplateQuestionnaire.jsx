@@ -62,7 +62,7 @@ const TemplateQuestionnaire = () => {
     >
       <SideMenu onToggle={handleToggleMenu} />
       <div
-        className={`transition-all duration-300 flex-grow h-auto ${
+        className={`transition-all duration-300 flex-grow h-auto relative ${
           isMenuOpen ? "ml-64" : "ml-0 w-full"
         }`}
       >
@@ -70,7 +70,7 @@ const TemplateQuestionnaire = () => {
         ¡Bienvenido querido héroe a los Cuestionarios!
       </h1>
 
-      <div className="bg-white rounded-lg grid grid-cols-5 gap-8">
+      <div className="bg-white rounded-lg grid grid-cols-5 gap-8 right-14 absolute bottom-20">
         {subjects.map((subject) => (
           <div
             key={subject.name}
