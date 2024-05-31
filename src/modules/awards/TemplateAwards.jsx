@@ -1,87 +1,143 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SideMenu from "../homeMentor/components/SideMenu";
-
+import { Description } from "@mui/icons-material";
+import TableH from "./components/TableH";
+import { Button, Input } from "reactstrap";
+import Popup from "./components/Popup";
+import { Avatar } from "@material-tailwind/react";
+import { useDispatch, useSelector } from "react-redux";
+import { UpdateAwards, getAwards } from "../../store/Slices/Awards/AwardSlice";
+import { SwalAlert } from "../../helpers/swals";
+import AwardsList from "../../common/components/AwardsList";
+import StoreIcon from '@mui/icons-material/Store';
 export function TemplateAwards() {
+
+
+  const dispatch = useDispatch();
   // Función SiteMenu
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [popUp, setPopUp] = useState(false);
+  const [disabled, setDisabled] = useState(true);
   const handleToggleMenu = (isOpen) => {
     setIsMenuOpen(isOpen);
   };
 
-  // Funciones agregar y eliminar
-  const [awards, setAwards] = useState([]);
-  const [newAward, setNewAward] = useState({ name: "", crowns: 1 });
+  const { awards } = useSelector((state) => ({
+    awards: state.Award.awards,
+  }))
 
-  const handleAddAward = () => {
-    if (newAward.name.trim() !== "") {
-      setAwards([...awards, newAward]);
-      setNewAward({ name: "", crowns: 1 });
+  const [form, setForm] = useState({ Titulo: "", Coronas: "", Descripcion: "", UrlImage: "" });
+
+  const handleForm = (namekey, change) => {
+    setForm({
+      ...form,
+      [namekey]: change
+    })
+  }
+
+  const encabezados = ["Coronas", "Titulo", "Descripcion", "UrlImage"]
+
+
+
+  const deleteFile = (titleFile) => {
+    let list = [...awards];
+    const newArray = list.filter(item => item.Titulo !== titleFile);
+    dispatch(UpdateAwards(newArray));
+  }
+
+  const onClonePopup = () => {
+    setPopUp(false);
+  }
+
+
+  useEffect(() => {
+    const { Titulo, Coronas, Descripcion, UrlImage } = form;
+    if (Titulo && Coronas && Descripcion && UrlImage) {
+      setDisabled(false)
+    } else {
+      setDisabled(true)
     }
+  }, [form])
+
+  useEffect(()=>{
+    console.log("entro aqui2")
+    dispatch(getAwards())
+  },[])
+
+  const existeTitulo = (lista, tituloBuscado) => {
+    return lista.some(item => item.Titulo === tituloBuscado);
   };
 
-  const handleDeleteAward = (index) => {
-    const updatedAwards = [...awards];
-    updatedAwards.splice(index, 1);
-    setAwards(updatedAwards);
-  };
+
+  const createAward = () => {
+    console.log(awards,"llegaron awards")
+    if(awards){
+      let list = awards;
+      if(existeTitulo(list,form.Titulo)){
+        SwalAlert("Error",`Ya existe este titulo en los premios`,"error")
+      }else{
+        console.log("entro resto de veces",list)
+        const newAwards = [...awards, form];
+        dispatch(UpdateAwards(newAwards));
+        setForm({ Titulo: "", Coronas: "", Descripcion: "", UrlImage: "" })
+        onClonePopup()
+      }
+      
+    }else{
+      console.log("entro primera vez")
+      dispatch(UpdateAwards([form]))
+      setForm({ Titulo: "", Coronas: "", Descripcion: "", UrlImage: "" })
+      onClonePopup()
+    }
+  }
+
+
+  useEffect(()=>{
+    console.log(awards,"estan aqui")
+  },[awards])
+
 
   return (
-    <div className="min-h-screen bg-no-repeat bg-cover"
-    style={{ backgroundImage:"url('/Images/Home/image_1.jpg')" }}
+    <div className="min-h-full w-full flex bg-no-repeat bg-cover box-border bg-[#f4f4f4]"
     >
-      <SideMenu onToggle={handleToggleMenu}
-      />
+      <SideMenu onToggle={handleToggleMenu} />
       <div
-        className={`transition-all duration-300 ${isMenuOpen ? "ml-64" : "ml-0 w-full"}`}
-      ></div>
-      <div className="flex-grow p-10">
-        <h1 className="text-4xl font-bold text-center mb-8">
-          Premios para tu Héroe
-        </h1>
-        <div className="flex justify-center mb-8">
-          <input
-            type="text"
-            className="w-96 px-4 py-2 mr-4 rounded-lg border border-gray-300 focus:outline-none"
-            placeholder="Nombre del premio"
-            value={newAward.name}
-            onChange={(e) => setNewAward({ ...newAward, name: e.target.value })}
-          />
-          <input
-            type="number"
-            className="w-[110px] px-4 py-2 mr-4 rounded-lg border border-gray-300 focus:outline-none"
-            placeholder="Coronas"
-            min="1"
-            max="100"
-            value={newAward.crowns}
-            onChange={(e) => setNewAward({ ...newAward, crowns: parseInt(e.target.value) })}
-          />
-          <button
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none"
-            onClick={handleAddAward}
-          >
-            Agregar
-          </button>
-        </div>
-        <div className="grid grid-cols-2 gap-4">
-          {awards.map((award, index) => (
-            <div key={index} className="p-4 border rounded-lg bg-white">
-              <p className="text-lg font-bold mb-2">{award.name}</p>
-              <div className="flex justify-between items-center">
-                <p>
-                  Coronas necesarias: <span className="font-semibold">{award.crowns}</span>/100
-                  <img src="/Images/HomeMentor/crown.png" alt="Corona" className="w-6 h-6 mb-1 inline-block" />
-                </p>
-                <button
-                  className="text-red-500 hover:text-red-600 focus:outline-none"
-                  onClick={() => handleDeleteAward(index)}
-                >
-                  Eliminar
-                </button>
+        className={`transition-all duration-300 flex-grow h-auto ${isMenuOpen ? "ml-64" : "ml-0 w-full"
+          }`}
+      >
+        <main className="w-full">
+            <div className="h-auto w-full box-border px-[5%] py-6 ">
+              <div className='w-full max-h-[70vh] flex flex-col overflow-hidden'>
+                <div className="flex justify-end items-center box-border m-4 ">
+                  <Button onClick={() => { setPopUp(true) }} className="p-4 bg-gray-800 rounded-md text-white">Añadir Premio</Button>
+                </div>
+                {awards && awards.length > 0 ? (<TableH deleteFile={deleteFile} headers={encabezados} data={awards} />):<p>No tienes premios asignados</p>}
+              </div>
+              <div className="w-full h-auto mt-10 flex flex-col md:flex-row justify-center items-center">
+                <div className=" w-[40%] h-auto box-border md:mr-12"><Avatar src="/Images/HomeMentor/Familia.png"/></div>
+                <div className="w-[60%] h-auto">
+                  <span className=" text-start font-medium text-2xl flex">Vista Previa <StoreIcon/></span>
+                  {awards && awards.length > 0 ? (<AwardsList listado={awards}/>):null}
+                </div>
               </div>
             </div>
-          ))}
-        </div>
+        </main>
       </div>
+
+      <Popup onClose={onClonePopup} isOpen={popUp}>
+        <div className=" flex-grow box-border p-4 w-full flex flex-col justify-center items-center">
+          <div className="grid grid-cols-2 gap-6 max-h-[40%]">
+            {encabezados.map((campo) => {
+              return (
+                <Input type={campo != "Coronas" ? "text" : "number"} className=" border-b-2 border-gray-600 p-2" placeholder={campo} onChange={(e) => { handleForm(campo, e.target.value) }} value={form[campo]} key={`${campo}-inputs`} />
+              )
+            })}
+          </div>
+          <div className="w-full box-border p-2 flex justify-end items-center">
+            <Button disabled={disabled} onClick={() => { createAward() }} className="p-4 bg-gray-800 rounded-md text-white">Agregar</Button>
+          </div>
+        </div>
+      </Popup>
     </div>
   );
 }
