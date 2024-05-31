@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const Popup = ({ isOpen, onClose, children }) => {
     return (
         isOpen ? (
-            <div className="fixed shadow-2xl transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-[70vw] h-[75vh] flex justify-center items-center  z-[1202] overflow-y-auto overflow-x-hidden rounded-lg bg-white dark:bg-darkBG">
+            <div className="fixed shadow-2xl transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-[50vw] h-[50vh] flex justify-center items-center  z-[1202] overflow-y-auto overflow-x-hidden rounded-lg bg-white dark:bg-darkBG">
                 <div className="h-full w-full flex flex-col">
                     <div className=' relative top-0 left-0 w-full h-[40px] bg-gray-800'/>
 

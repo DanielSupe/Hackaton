@@ -1,1 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Caesar+Dressing&family=Timmana&display=swap');
+
+.large-text{
+    font-size: x-large;
+    max-width: 450px !important;
+  }
+  
+  .cancelButtonSwal{
+    background-color: #E28181 !important;
+  }
+  
+  .confirmButtonSwal{
+    --tw-bg-opacity: 1 !important;
+    background-color: rgb(31 41 55 / var(--tw-bg-opacity)) !important;
+  }
