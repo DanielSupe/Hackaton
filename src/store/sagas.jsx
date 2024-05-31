@@ -3,6 +3,8 @@ import { all } from 'redux-saga/effects';
 import RegisterSaga from "./Slices/register/RegisterSaga";
 import LoginSaga from "./Slices/login/LoginSaga";
 import AwardSaga from "./Slices/Awards/AwardSaga";
+import DashboardSaga from "./Slices/dashboard/DashboardSaga";
+import LogsHeroSaga from "./Slices/LogsHero/LogsHeroSaga";
 export const saga = createSagaMiddleware(
     
 )
@@ -13,6 +15,8 @@ export function* rootSaga() {
     RegisterSaga(),
     LoginSaga(),
     AwardSaga(),
+    DashboardSaga(),
+    LogsHeroSaga(),
 
 
 

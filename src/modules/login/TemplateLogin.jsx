@@ -46,7 +46,7 @@ const Login = () => {
 
   return (
     <div className="h-[100vh] items-center flex justify-center px-5 lg:px-0">
-  <div className="max-w-screen-xl bg-white border shadow-xl sm:rounded-lg flex justify-center flex-1">
+  <div className="max-w-screen-xl bg-[#f4f4f4] border shadow-xl sm:rounded-lg flex justify-center flex-1">
     <div
       className="flex-1 text-center hidden rounded-l-lg md:flex bg-cover bg-center bg-no-repeat"
       style={{
