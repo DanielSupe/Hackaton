@@ -21,7 +21,7 @@ const TemplateDashboard = () => {
     labels: ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"],
     datasets: [
       {
-        label: "Horas de estudio",
+        label: "Cuestionarios Realizados",
         data: [2, 3, 4, 1, 5],
         backgroundColor: "#ff3b19",
       },
@@ -29,18 +29,18 @@ const TemplateDashboard = () => {
   };
 
   const dataLine = {
-    labels: ["Semana 1", "Semana 2", "Semana 3", "Semana 4"],
+    labels: ["Matemáticas", "Ciencias", "Lenguaje", "Arte"],
     datasets: [
       {
-        label: "Progreso semanal",
+        label: "Respuestas Correctas por materia",
         data: [65, 59, 80, 81],
         borderColor: "#ff3b19",
-        fill: false,
+        fill: true,
       },
     ],
   };
 
-  const dataPie = {
+  const dataPie = {//Respuestas incorrectas por materia
     labels: ["Matemáticas", "Ciencias", "Lenguaje", "Arte"],
     datasets: [
       {
@@ -59,7 +59,6 @@ const TemplateDashboard = () => {
         }`}
       >
         <main className="flex-1 p-5">
-          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             <div className="bg-white p-5 rounded shadow w-[80%] flex flex-row">
               <img
@@ -101,16 +100,16 @@ const TemplateDashboard = () => {
               </div>
             </div>
             <div className="bg-white p-5 rounded shadow">
-              <h2 className="text-xl font-semibold mb-3">Horas de Estudio</h2>
+              <h2 className="text-xl font-semibold mb-3">Cuestionarios Realizados</h2>
               <Bar data={dataBar} />
             </div>
             <div className="bg-white p-5 rounded shadow">
-              <h2 className="text-xl font-semibold mb-3">Progreso Semanal</h2>
+              <h2 className="text-xl font-semibold mb-3"> Preguntas Correctas por materia</h2>
               <Line data={dataLine} />
             </div>
             <div className="bg-white p-5 rounded shadow">
               <h2 className="text-xl font-semibold mb-3">
-                Distribución de Materias
+                Preguntas Incorrectas Por Materia
               </h2>
               <Pie data={dataPie} />
             </div>
