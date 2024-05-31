@@ -22,7 +22,7 @@ const TemplateTableMentor = () => {
     <div className="bg-[#f4f4f4] min-h-screen p-4 flex justify-center items-center">
       <SideMenu onToggle={handleToggleMenu} />
       <div
-        className={`transition-all duration-300 ${
+        className={`transition-all duration-300 flex justify-center items-center ${
           isMenuOpen ? "ml-64" : "ml-0 w-full"
         }`}
       >

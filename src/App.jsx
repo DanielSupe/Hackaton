@@ -14,6 +14,7 @@ import Questionnaire from './pages/Questionnaire';
 import LayautHeroe from './common/components/LayautHeroe';
 import HomeHeroe from './pages/HomeHeroe';
 import TableMentor from './pages/TableMentor';
+import AwardsHero from './pages/AwardsHero';
 
 
 
@@ -41,15 +42,8 @@ function App() {
         <Route path="/Inicio/Heroe" element={<LayautHeroe/>}>
           <Route index element={<HomeHeroe/>} />  
           <Route path="/Inicio/Heroe/cuestionario" element={<Questionnaire />} /> 
+          <Route path="/Inicio/Heroe/premios" element={<AwardsHero />} /> 
         </Route>
-
-
-        {/* para poner un layaut */}
-
-        {/* <Route path="/Main" element={}>
-          <Route index element={<TemplateInicio />} />
-
-        </Route> */}
 
         </Routes>
 
