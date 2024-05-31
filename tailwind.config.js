@@ -9,6 +9,9 @@ export default {
       backgroundColor:{
         
       },
+      gridTemplateColumns: {
+        autoFit: "repeat(auto-fit, minmax(200px, 200px))"
+      },
       animation: {
         fadeIn: 'fadeIn 2s ease-in-out',
         slideIn: 'slideIn 1s ease-out',

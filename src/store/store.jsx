@@ -3,6 +3,7 @@ import { saga } from "./sagas";
 import { rootSaga } from "./sagas";
 import RegisterSlice from "./Slices/register/RegisterSlice";
 import LoginSlice from "./Slices/login/LoginSlice";
+import AwardSlice from "./Slices/Awards/AwardSlice";
 import DashboardSlice from "./Slices/dashboard/DashboardSlice";
 import LogsHeroSlice from "./Slices/LogsHero/LogsHeroSlice";
 export const store = configureStore({
@@ -10,8 +11,8 @@ export const store = configureStore({
          Register:RegisterSlice,
          Login:LoginSlice,
          Dashboard: DashboardSlice,
-         LogsHero: LogsHeroSlice
-
+         LogsHero: LogsHeroSlice,
+         Award: AwardSlice
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(saga)
 })
