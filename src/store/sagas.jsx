@@ -6,7 +6,7 @@ import AwardSaga from "./Slices/Awards/AwardSaga";
 import DashboardSaga from "./Slices/dashboard/DashboardSaga";
 import LogsHeroSaga from "./Slices/LogsHero/LogsHeroSaga";
 import HeroeSaga from "./Slices/Heroe/HeroeSaga";
-import QuizSaga from "./Slices/Quizzes/QuizzesSaga";
+import QuizSaga from "./Slices/Quizzes/QuizzesSagas";
 export const saga = createSagaMiddleware(
     
 )

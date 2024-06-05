@@ -1,9 +1,4 @@
 import React, { useState } from "react";
-import BiologyQuiz from "./components/ShowQuiz";
-import MathQuiz from "./components/quiz2";
-import EnglishQuiz from "./components/quiz3";
-import GeographyQuiz from "./components/quiz4";
-import SpanishQuiz from "./components/quiz5";
 import SideMenu from "../homeMentor/components/SideMenu";
 import ShowQuiz from "./components/ShowQuiz";
 
@@ -11,41 +6,33 @@ const subjects = [
   {
     name: "Matematicas",
     image: "/Images/quiz/MathQuiz.jpeg",
-    component: MathQuiz,
   },
   {
     name: "Ingles",
     image: "/Images/quiz/EnglishQuiz.jpeg",
-    component: EnglishQuiz,
   },
   {
     name: "Biologia",
     image: "/Images/quiz/BiologyQuiz.jpeg",
-    component: BiologyQuiz,
   },
   {
     name: "Geografia",
     image: "/Images/quiz/GeographyQuiz.jpeg",
-    component: GeographyQuiz,
   },
   {
     name: "Español",
     image: "/Images/quiz/SpanishQuiz.jpeg",
-    component: SpanishQuiz,
   },
 ];
 
 const TemplateQuestionnaire = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [popUp, setPopUp] = useState(false);
-  const [disabled, setDisabled] = useState(true);
   const [selectedSignature, setSelectedSignature] = useState("");
 
   const handleToggleMenu = (isOpen) => {
     setIsMenuOpen(isOpen);
   };
   const handleCardClick = (value) => {
-    console.log(value, "handleCardClick");
     setSelectedSignature(value);
   };
   const handleClose = () => {

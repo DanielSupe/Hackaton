@@ -9,27 +9,32 @@ const ShowQuiz = ({ Signature }) => {
   const { QuizSignature } = useSelector((state) => ({
     QuizSignature: state.Quizzes.QuizSignature,
   }));
-  const [questions, setQuestions] = useState(null);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getQuiz(Signature));
   }, [dispatch]);
 
-  useEffect(() => {
-    console.log(QuizSignature, 'QuizSignature')
-    setQuestions({ ...HEADER_QUIZ, ...QuizSignature });
-    console.log(questions)
-  }, [QuizSignature]);
-
+  const renderShowQuiz = () => {
+    if (QuizSignature) {
+      const quizData = {
+        ...HEADER_QUIZ,
+        ...QuizSignature,
+        questions: QuizSignature.questions.map((question) => ({
+          ...question,
+          answers: [...question.answers],
+        })),
+        appLocale: { ...QuizSignature.appLocale },
+      };
+      return <Quiz quiz={quizData} shuffle={true} showInstantFeedback={true} />;
+    }
+  };
   return (
     <div className="max-w-4xl mx-auto p-4 bg-white rounded-lg shadow-md flex flex-col justify-center items-center text-center">
       <h2 className="text-2xl font-bold mb-4 text-center">
         Cuestionario de {Signature}
       </h2>
-      {questions && (
-        <Quiz quiz={questions} shuffle={true} showInstantFeedback={true} />
-      )}
+      {renderShowQuiz()}
     </div>
   );
 };
