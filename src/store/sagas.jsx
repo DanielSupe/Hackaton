@@ -6,6 +6,7 @@ import AwardSaga from "./Slices/Awards/AwardSaga";
 import DashboardSaga from "./Slices/dashboard/DashboardSaga";
 import LogsHeroSaga from "./Slices/LogsHero/LogsHeroSaga";
 import HeroeSaga from "./Slices/Heroe/HeroeSaga";
+import QuizSaga from "./Slices/Quizzes/QuizzesSaga";
 export const saga = createSagaMiddleware(
     
 )
@@ -19,6 +20,7 @@ export function* rootSaga() {
     DashboardSaga(),
     LogsHeroSaga(),
     HeroeSaga(),
+    QuizSaga()
 
 
 

@@ -7,6 +7,7 @@ import AwardSlice from "./Slices/Awards/AwardSlice";
 import DashboardSlice from "./Slices/dashboard/DashboardSlice";
 import LogsHeroSlice from "./Slices/LogsHero/LogsHeroSlice";
 import { HeroSlice } from "./Slices/Heroe/HeroeSlice";
+import QuizzesSlice from "./Slices/Quizzes/QuizzesSlice";
 export const store = configureStore({
     reducer:{
          Register:RegisterSlice,
@@ -14,7 +15,9 @@ export const store = configureStore({
          Dashboard: DashboardSlice,
          LogsHero: LogsHeroSlice,
          Award: AwardSlice,
-         Heroe: HeroSlice
+         Heroe: HeroSlice,
+         Quizzes: QuizzesSlice,
+
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(saga)
 })
